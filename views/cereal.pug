@@ -2,8 +2,7 @@ extends layout
 
 block content
   h1= title
-  - var result = [{"cerealBrandName":"Kellogg's","cerealFlavor":"Red Berries","price":5.8},{"cerealBrandName":"Special K","cerealFlavor":"Fruit and Yogurt","price":4.99},{"cerealBrandName":"Post Great Grains","cerealFlavor":"Raisins and Dates","price":6.2},{"cerealBrandName":"Quaker","cerealFlavor":"Oats Honey Raisins & Almonds","price":3.99}]
-  br
+  - var result = results
   div.container-fluid
      div.row
         each item,index in result
