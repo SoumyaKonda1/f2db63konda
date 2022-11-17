@@ -1,0 +1,43 @@
+extends layout
+block content
+ h1= title
+ if (toShow == null)
+  h2 No instance to update
+ else
+  - let cerealid = toShow._id
+  - let cerealBrandName = toShow.cerealBrandName
+  - let price = toShow.price
+  - let cerealFlavor = toShow.cerealFlavor
+ 
+   div.row(class='mb-2')
+    div.mr-1 ID is
+    div #{cerealid}
+  - let actionid = "/resource/cereal/" + cerealid
+  form(id='CerealForm', action= actionid, method="PUT")
+   div.form-group
+    label.costumeAttr(for='cerealBrandName') Cereal BrandName
+    input#cerealBrandName(type='text', name='cerealBrandName', value= cerealBrandName )
+   div.form-group
+    label.costumeAttr(for='cerealFlavor') Cereal Flavor
+    input#cerealFlavor(type='text', name='cerealFlavor', value= cerealFlavor )
+   div.form-group
+    label.costumeAttr(for='price') Price
+    input#cost(type='number', name='price', value= price )
+   input(type="submit")
+  script.
+   document.forms['CerealForm'].addEventListener('submit', (event) => {
+    event.preventDefault();
+    // TODO do something here to show user that form is being submitted
+    fetch(event.target.action, {
+     method: 'PUT',
+     body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+    }).then((resp) => {
+     return resp.json(); // or resp.text() or whatever the server sends
+    }).then((body) => {
+     alert("Update succeded")
+    // TODO handle body
+    }).catch((error) => {
+    // TODO handle error
+     alert("Update failed " + error )
+    });
+   });

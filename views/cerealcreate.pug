@@ -1,0 +1,36 @@
+extends layout
+block content
+ div(class="container-fluid p-5 bg-info text-black text-center")
+  h2.text-center Create Cereal Item
+ br
+ div(class="container text-center")
+  form(id='CerealForm', action="/resource/cereal", method="POST")
+   div(class="form-group")
+    label.create-page(for='cerealBrandName') Cereal BrandName
+    input#cerealBrandName(type='text', name='cerealBrandName')
+   div.form-group
+    label.create-page(for='cerealFlavor') Cereal Flavor
+    input#cerealFlavor(type='text', name='cerealFlavor')
+   div.form-group
+    label.create-page(for='price') Cereal Price
+    input#price(type='number', name='price')
+   br
+   button(type='submit', class='btn btn-outline-primary') Create
+
+ script.
+  document.forms['CerealForm'].addEventListener('submit', (event) => {
+  event.preventDefault();
+  // TODO do something here to show user that form is being submitted
+  fetch(event.target.action, {
+   method: 'POST',
+   body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+  }).then((resp) => {
+   return resp.json(); // or resp.text() or whatever the server sends
+  }).then((body) => {
+   alert("Save succeded")
+  // TODO handle body
+  }).catch((error) => {
+  // TODO handle error
+   alert("Save failed " + error )
+   });
+  });

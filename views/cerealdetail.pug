@@ -1,0 +1,25 @@
+extends layout
+block content
+ h1= title
+ if (toShow == null)
+  h2 No instance to detail
+ else
+  - let cerealid = toShow._id
+  - let cerealBrandName = toShow.cerealBrandName
+  - let price = toShow.price
+  - let cerealFlavor = toShow.cerealFlavor
+
+  div
+   div.row
+    div(class='costumeAttr mr-3') Cereal ID is:
+    div #{cerealid}
+   div.row
+    div(class='costumeAttr mr-3') Cereal BrandName is:
+    div #{cerealBrandName}
+   div.row
+    div(class='costumeAttr mr-3') Cereal Flavor is:
+    div #{cerealFlavor}
+   div.row
+    div(class='costumeAttr mr-3') Cereal Price is:
+    div #{price}
+ 
