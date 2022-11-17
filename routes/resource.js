@@ -18,14 +18,5 @@ router.get('/cereal/:id', cereal_controller.cereal_detail);
 // GET request for list of all cereal items.
 router.get('/cereal', cereal_controller.cereal_list);
 
-// /* GET detail cereal page */
-// router.get('/detail', cereal_controller.cereal_view_one_Page);
-// /* GET create cereal page */
-// router.get('/create', cereal_controller.cereal_create_Page);
-// /* GET create update page */
-// router.get('/update', cereal_controller.cereal_update_Page);
-// /* GET delete cereal page */
-// router.get('/delete', cereal_controller.cereal_delete_Page);
-
 module.exports = router;
 
