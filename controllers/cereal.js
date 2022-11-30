@@ -1,24 +1,5 @@
 var cereal = require('../models/cereal');
-// List of all Costumes
-exports.cereal_list = function (req, res) {
-    res.send('NOT IMPLEMENTED: cereal list');
-};
-// for a specific Costume.
-exports.cereal_detail = function (req, res) {
-    res.send('NOT IMPLEMENTED: cereal detail: ' + req.params.id);
-};
-// Handle Costume create on POST.
-exports.cereal_create_post = function (req, res) {
-    res.send('NOT IMPLEMENTED: cereal create POST');
-};
-// Handle Costume delete form on DELETE.
-exports.cereal_delete = function (req, res) {
-    res.send('NOT IMPLEMENTED: cereal delete DELETE ' + req.params.id);
-};
-// Handle Costume update form on PUT.
-exports.cereal_update_put = function (req, res) {
-    res.send('NOT IMPLEMENTED: cereal update PUT' + req.params.id);
-};
+
 // VIEWS
 
 // List of all Costumes

@@ -2,13 +2,23 @@ extends layout
 
 block content
   h1= title
+  - let createPage = `dispatch(\"/cereal/create")`
+  div(class="row m-1 text-right")
+   div(class="col-md-6")
+   div(class="col-md-3")
+   div(class="col-md-3")
+    button.btn( class="btn-success ml-1", onclick= createPage) Create New Item
   - var result = results
   div(class="container-fluid")
      div(class="row m-1")
         each item,index in result
             - let destination = `dispatch(\"/cereal/update?id=${item._id}\")`
-            div(class="row-sm-2", class="m-1") item #{item.cerealBrandName}(#{item.cerealFlavor}) is #{item.price}
-             button.btn( class="btn-primary ml-1", onclick= destination) Update
+            - let detail = `dispatch(\"/cereal/detail?id=${item._id}\")`
+            - let deleteItem = `dispatch(\"/cereal/delete?id=${item._id}\")`
+            div(class="row-sm-2", class="m-2") item #{item.cerealBrandName}(#{item.cerealFlavor}) is #{item.price}
+             button.btn( class="btn-primary ml-2 p-1 m-2", onclick= destination) Update
+             button.btn( class="btn-info ml-2 m-2", onclick= detail) View Detail
+             button.btn( class="btn-danger ml-2 m-2", onclick= deleteItem) Delete Item
   script.
       function dispatch(path){
          window.location.href=path
