@@ -16,9 +16,9 @@ block content
             - let detail = `dispatch(\"/cereal/detail?id=${item._id}\")`
             - let deleteItem = `dispatch(\"/cereal/delete?id=${item._id}\")`
             div(class="row-sm-2", class="m-2") item #{item.cerealBrandName}(#{item.cerealFlavor}) is #{item.price}
-             button.btn( class="btn-primary ml-2 p-1 m-2", onclick= destination) Update
+             button.btn( class="btn-info ml-2 p-1 m-2", onclick= destination) Update
              button.btn( class="btn-info ml-2 m-2", onclick= detail) View Detail
-             button.btn( class="btn-danger ml-2 m-2", onclick= deleteItem) Delete Item
+             button.btn( class="btn-info ml-2 m-2", onclick= deleteItem) Delete Item
   script.
       function dispatch(path){
          window.location.href=path
